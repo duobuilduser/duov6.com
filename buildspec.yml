@@ -10,30 +10,8 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - git config --global user.name $username
-      - git config --global user.email $emailaddress
-      - export PATH=$PATH:/usr/local/go/bin;
-      - export GOPATH=$PWD;
-      - export PATH=$PATH:$GOPATH/bin;
-      - cd bin
-      - rm *
-      - cd ../
-      - cd src
-      - mkdir depo
-      - git clone https://github.com/DuoSoftware/v6engine-deps
-      - cd ../
-      - cd depo/v6engine-deps
-      - git pull
-      - cp * -r $GOPATH/src
-      - cd ../../
-      - git clone https://github.com/DuoSoftware/v6engine
-      - mv v6engine duov6.com
-      - cd duov6.com
-      - echo "$PWD"
-      - echo "$GOPATH"
-      - cd duoauth
       - echo Compiling the Go code...
-      - go build duoauth.go
+      - go build duoauth/duoauth.go
       - go install
   post_build:
     commands:
