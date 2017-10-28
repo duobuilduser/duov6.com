@@ -20,7 +20,7 @@ phases:
       - cp -a ${CODEBUILD_SRC_DIR}/.  ${GOPATH}/src/${PACKAGE}
       - git config --global user.name duobuilduser
       - git config --global user.email DuoS12345
-      - cd ${GOPATH}/src/${PACKAGE} && ls && pwd && go get ./...
+      - cd ${GOPATH}/src/${PACKAGE} && ls && pwd && go get .../...
       
   build:
     commands:
