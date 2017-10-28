@@ -1,16 +1,10 @@
 version: 0.2
 
-env:
-  variables:
-    BuildOutPath: "$PWD"
-    username: "duobuilduser"
-    emailaddress: "duobuilduser@duosoftware.com"
-    password: "DuoS12345"
 phases:      
   build:
     commands:
       - echo Build started on `date`
-      - echo Compiling the Go code...
+      - scripts/build.sh
       - go build duoauth/duoauth.go
       - go install
   post_build:
