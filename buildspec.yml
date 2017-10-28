@@ -10,24 +10,18 @@ environment_variables:
     BuildOutPath: "$PWD"
 
 phases:
-  install:
-    commands:
-      - echo Build started on `date`
-      - pwd
-      - ls
-            
-      
-
-build:
-  commands:
-    - echo Compiling the Go code...
-    - go build duoauth/duoauth.go
-    - go install
+  
+   build:
+      commands:
+         - echo Compiling the Go code...
+         - go build duoauth/duoauth.go
+         - go install
     
-post_build:
-    commands:
-      - echo Build completed on `date`
-artifacts:
-  files:
+   post_build:
+       commands:
+         - echo Build completed on `date`
+ 
+ artifacts:
+   files:
     - duoauth
 
