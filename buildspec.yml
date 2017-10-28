@@ -20,14 +20,15 @@ phases:
       - cd ${GOPATH}/src/${PACKAGE}  
       - ls
       - echo testing....2
-      - ls ${CODEBUILD_SRC_DIR}
+      - ls ${CODEBUILD_SRC_DIR}/duoauth
   build:
     commands:
       - echo Build started on `date`
-      - cd ${GOPATH}/src/${PACKAGE} && go build -o ${CODEBUILD_SRC_DIR}/application
+      - ls 
+      - cd ${GOPATH}/src/${PACKAGE} && go build -o ${CODEBUILD_SRC_DIR}/duoauth/duoauth.go
   post_build:
     commands:
       - echo Build completed on `date`
 artifacts:
   files:
-    - application
+    - duoauth
