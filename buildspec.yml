@@ -3,10 +3,12 @@ version: 0.1
 environment_variables:
   plaintext:
     PACKAGE: "github.com/duobuilduser/duov6.com"
+
     
 phases: 
   install:
     commands:
+      
       - echo CODEBUILD_SRC_DIR - $CODEBUILD_SRC_DIR
       - echo GOPATH - $GOPATH
 
@@ -17,15 +19,11 @@ phases:
       - echo cp -a ${CODEBUILD_SRC_DIR}/.  ${GOPATH}/src/${PACKAGE}
       - cp -a ${CODEBUILD_SRC_DIR}/.  ${GOPATH}/src/${PACKAGE}
 
-      - cd ${GOPATH}/src/${PACKAGE}  
-      - ls
-      - echo testing....2
-      - ls ${CODEBUILD_SRC_DIR}/duoauth
+      - cd ${GOPATH}/src/${PACKAGE} && go get ./...  
   build:
     commands:
       - echo Build started on `date`
-      - ls 
-      - go build ${CODEBUILD_SRC_DIR}/duoauth/duoauth.go
+      - cd ${GOPATH}/src/${PACKAGE} && go build -o ${CODEBUILD_SRC_DIR}/duoauth/duoauth.go
   post_build:
     commands:
       - echo Build completed on `date`
