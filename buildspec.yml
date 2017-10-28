@@ -19,7 +19,7 @@ phases:
 
       - cd ${GOPATH}/src/${PACKAGE}  
       - ls
-      -echo testing....2
+      - echo testing....2
       - ls ${CODEBUILD_SRC_DIR}
   build:
     commands:
