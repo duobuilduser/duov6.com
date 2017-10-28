@@ -1,4 +1,4 @@
-version: 0.1
+version: 0.2
 
 environment_variables:
    plaintext:
@@ -8,20 +8,15 @@ environment_variables:
     GO_VERSION: "1.7.4"
     GO: "/usr/local/go/bin"
     BuildOutPath: "$PWD"
-
-phases:
-  
+phases:  
    build:
-      commands:
-         - echo Compiling the Go code...
-         - go build duoauth/duoauth.go
-         - go install
-    
+     commands:
+       - echo Compiling the Go code...
+       - go build duoauth/duoauth.go
+       - go install    
    post_build:
-       commands:
-         - echo Build completed on `date`
- 
+     commands:
+       - echo Build completed on `date`
  artifacts:
    files:
     - duoauth
-
