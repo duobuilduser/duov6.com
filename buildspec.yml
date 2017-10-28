@@ -2,7 +2,7 @@ version: 0.1
 
 environment_variables:
   plaintext:
-    PACKAGE: "github.com/duobuilduser/duov6.com"
+    PACKAGE: "duov6.com"
 
     
 phases: 
