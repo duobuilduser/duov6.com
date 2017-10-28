@@ -15,16 +15,12 @@ phases:
 
       - echo Create dir in GOPATH for sources
       - mkdir -p ${GOPATH}/src/${PACKAGE}
-      - mkdir -p ${GOPATH}/src/${PACKAGE}/depo
+     
 
       - echo Copy source files into GOPATH
       - echo cp -a ${CODEBUILD_SRC_DIR}/.  ${GOPATH}/src/${PACKAGE}
-      - cp -a ${CODEBUILD_SRC_DIR}/.  ${GOPATH}/src/${PACKAGE}
-      - git config --global user.name duobuilduser
-      - git config --global user.email duobuilduser@duosoftware.com
-      - cd ${GOPATH}/src/${PACKAGE}/depo
-      - git clone https://github.com/DuoSoftware/v6engine-deps
-      
+      - cp -a ${CODEBUILD_SRC_DIR}/.  ${GOPATH}/src/${PACKAGE}  
+         
       - echo go path
       - ls ${GOPATH}/src/${PACKAGE}
       
@@ -33,7 +29,7 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - go build -o ${GOPATH}/src/${PACKAGE}/duoauth/duoauth.go
+      - go build ${GOPATH}/src/${PACKAGE}/duoauth/duoauth.go
   post_build:
     commands:
       - echo Build completed on `date`
