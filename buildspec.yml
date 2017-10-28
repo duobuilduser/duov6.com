@@ -14,22 +14,22 @@ phases:
      
 
       - echo Create dir in GOPATH for sources
-      - mkdir -p ${GOPATH}/src/${PACKAGE}
+      - mkdir -p ${GOPATH}/${PACKAGE}
      
 
       - echo Copy source files into GOPATH
-      - echo cp -a ${CODEBUILD_SRC_DIR}/.  ${GOPATH}/src/${PACKAGE}
-      - cp -a ${CODEBUILD_SRC_DIR}/.  ${GOPATH}/src/${PACKAGE}  
+      - echo cp -a ${CODEBUILD_SRC_DIR}/.  ${GOPATH}/${PACKAGE}
+      - cp -a ${CODEBUILD_SRC_DIR}/.  ${GOPATH}/${PACKAGE}  
          
       - echo go path
-      - ls ${GOPATH}/src/${PACKAGE}
+      - ls ${GOPATH}/${PACKAGE}
       
-      - cd ${GOPATH}/src/${PACKAGE} 
+      - cd ${GOPATH}/${PACKAGE} 
             
   build:
     commands:
       - echo Build started on `date`
-      - go build ${GOPATH}/src/${PACKAGE}/duoauth/duoauth.go
+      - go build ${GOPATH}/${PACKAGE}/duoauth/duoauth.go
   post_build:
     commands:
       - echo Build completed on `date`
