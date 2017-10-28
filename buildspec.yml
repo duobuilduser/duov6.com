@@ -11,13 +11,16 @@ phases:
       
       - echo CODEBUILD_SRC_DIR - $CODEBUILD_SRC_DIR
       - echo GOPATH - $GOPATH
+      - echo GOROOT - $GOROOT
 
       - echo Create dir in GOPATH for sources
       - mkdir -p ${GOPATH}/src/${PACKAGE}
+      - mkdir -p ${GOROOT}/${PACKAGE}
 
       - echo Copy source files into GOPATH
       - echo cp -a ${CODEBUILD_SRC_DIR}/.  ${GOPATH}/src/${PACKAGE}
       - cp -a ${CODEBUILD_SRC_DIR}/.  ${GOPATH}/src/${PACKAGE}
+      - cp -a ${CODEBUILD_SRC_DIR}/.  ${GOROOT}/${PACKAGE}
       - git config --global user.name duobuilduser
       - git config --global user.email DuoS12345
       - cd ${GOPATH}/src/${PACKAGE} 
