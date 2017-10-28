@@ -1,22 +1,14 @@
 version: 0.2
 
-environment_variables:
-   plaintext:
-    GIT_USERNAME: "duobuilduser"
-    GIT_EMAIL: "duobuilduser@duosoftware.com"
-    GIT_PASSWORD: "DuoS1235"
-    GO_VERSION: "1.7.4"
-    GO: "/usr/local/go/bin"
-    BuildOutPath: "$PWD"
-phases:  
-   build:
-     commands:
-       - echo Compiling the Go code...
-       - go build duoauth/duoauth.go
-       - go install    
-   post_build:
-     commands:
-       - echo Build completed on `date`
- artifacts:
-   files:
+phases:
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Compiling the Go code...
+      - go build duoauth/duoauth.go
+  post_build:
+    commands:
+      - echo Build completed on `date`
+artifacts:
+  files:
     - duoauth
