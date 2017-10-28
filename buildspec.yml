@@ -29,7 +29,7 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - go build ${GOPATH}/${PACKAGE}/duoauth/duoauth.go
+      - go build ${CODEBUILD_SRC_DIR}/duoauth/duoauth.go
   post_build:
     commands:
       - echo Build completed on `date`
