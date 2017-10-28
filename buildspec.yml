@@ -21,7 +21,10 @@ phases:
       - echo cp -a ${CODEBUILD_SRC_DIR}/.  ${GOPATH}/src/${PACKAGE}
       - cp -a ${CODEBUILD_SRC_DIR}/.  ${GOPATH}/src/${PACKAGE}
       - cp -a ${CODEBUILD_SRC_DIR}/.  ${GOROOT}/${PACKAGE}
-      - git config --global user.name duobuilduser
+      - echo go root
+      - ls ${GOROOT}/${PACKAGE}
+      - echo go path
+      - ls ${GOPATH}/src/${PACKAGE}
       - git config --global user.email DuoS12345
       - cd ${GOPATH}/src/${PACKAGE} 
             
