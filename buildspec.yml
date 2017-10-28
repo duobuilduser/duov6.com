@@ -25,8 +25,6 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - export PATH=$PATH:/usr/local/go/bin
-      - export PATH=$PATH:$GOPATH/bin
       - cd ${GOPATH}/src/${PACKAGE}/duoauth && go build -o ${CODEBUILD_SRC_DIR}/duoauth/duoauth.go
   post_build:
     commands:
