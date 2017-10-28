@@ -19,8 +19,8 @@ phases:
       - echo cp -a ${CODEBUILD_SRC_DIR}/.  ${GOPATH}/src/${PACKAGE}
       - cp -a ${CODEBUILD_SRC_DIR}/.  ${GOPATH}/src/${PACKAGE}
 
-      - cd ${GOPATH}/src/${PACKAGE} 
-      - go get github.com/duobuilduser/duov6.com
+      - cd ${GOPATH}/src/${PACKAGE} && go get github.com/DuoSoftware/v6engine-deps
+      
   build:
     commands:
       - echo Build started on `date`
