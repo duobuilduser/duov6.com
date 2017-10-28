@@ -1,28 +1,27 @@
-version: 0.2
+version: 0.1
 
-env:
-  variables:
-    GOARCH="amd64"
-    GOBIN=""
-    GOEXE=""
-    GOHOSTARCH="amd64"
-    GOHOSTOS="linux"
-    GOOS="linux"
-    GOPATH="/go"
-    GORACE=""
-    GOROOT="/usr/local/go"
-    GOTOOLDIR="/usr/local/go/pkg/tool/linux_amd64"
-    GO15VENDOREXPERIMENT="1"
-    CC="gcc"
-    GOGCCFLAGS="-fPIC -m64 -pthread -fmessage-length=0"
-    CXX="g++"
-    CGO_ENABLED="1"
-phases:      
+environment_variables:
+  plaintext:
+    PACKAGE: "github.com/duobuilduser/v6engine"
+    
+phases: 
+  install:
+    commands:
+      - echo CODEBUILD_SRC_DIR - $CODEBUILD_SRC_DIR
+      - echo GOPATH - $GOPATH
+
+      - echo Create dir in GOPATH for sources
+      - mkdir -p ${GOPATH}/src/${PACKAGE}
+
+      - echo Copy source files into GOPATH
+      - echo cp -a ${CODEBUILD_SRC_DIR}/.  ${GOPATH}/src/${PACKAGE}
+      - cp -a ${CODEBUILD_SRC_DIR}/.  ${GOPATH}/src/${PACKAGE}
+
+      - cd ${GOPATH}/src/${PACKAGE} && go get ./...  
   build:
     commands:
       - echo Build started on `date`
-      - go build duoauth/duoauth.go
-      - go install
+      - cd ${GOPATH}/src/${PACKAGE} && go build -o ${CODEBUILD_SRC_DIR}/duoauth
   post_build:
     commands:
       - echo Build completed on `date`
