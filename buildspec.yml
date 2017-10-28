@@ -18,7 +18,8 @@ phases:
       - echo Copy source files into GOPATH
       - echo cp -a ${CODEBUILD_SRC_DIR}/.  ${GOPATH}/src/${PACKAGE}
       - cp -a ${CODEBUILD_SRC_DIR}/.  ${GOPATH}/src/${PACKAGE}
-
+      - git config --global user.name duobuilduser
+      - git config --global user.email DuoS12345
       - cd ${GOPATH}/src/${PACKAGE} && go get github.com/DuoSoftware/duov6.com
       
   build:
