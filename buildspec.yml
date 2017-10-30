@@ -37,7 +37,7 @@ phases:
       - go get github.com/xuyu/goredis
       - go get golang.org/x/net/context
       - go get golang.org/x/oauth2/google
-      - go get google.golang.org/cloud
+      - go get cloud.google.com/go
       - go get google.golang.org/cloud/bigtable
       - go get google.golang.org/cloud/datastore
       - go get gopkg.in/mgo.v2
