@@ -2,32 +2,22 @@ version: 0.1
 
 environment_variables:
   plaintext:
-    PACKAGE: "duov6.com"
-    PACKAGE_GIT: "github.com"
-   
-
+    PACKAGE: "duov6.com"  
     
 phases: 
   install:
-    commands:
-      
+    commands:      
       - echo CODEBUILD_SRC_DIR - $CODEBUILD_SRC_DIR
-      - echo GOPATH - $GOPATH
-     
-
+      - echo GOPATH - $GOPATH   
       - echo Create dir in GOPATH for sources
-      - mkdir -p ${GOPATH}/${PACKAGE}
-       
-
+      - mkdir -p ${GOPATH}/${PACKAGE}      
       - echo Copy source files into GOPATH
       - echo cp -a ${CODEBUILD_SRC_DIR}/.  ${GOPATH}/${PACKAGE}
       - cp -a ${CODEBUILD_SRC_DIR}/.  ${GOPATH}/${PACKAGE}
       - cp -a ${CODEBUILD_SRC_DIR}/.  /go/src/${PACKAGE} 
       - git clone https://github.com/DuoSoftware/v6engine-deps.git 
-      - cp -a ${CODEBUILD_SRC_DIR}/v6engine-deps/. /go/src/
-      - cd /go/src/ && ls && pwd
-       
-         
+      - cp -a ${CODEBUILD_SRC_DIR}/v6engine-deps/. /go/src/        
+      
             
   build:
     commands:
