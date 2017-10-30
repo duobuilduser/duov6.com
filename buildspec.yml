@@ -21,7 +21,8 @@ phases:
       - echo cp -a ${CODEBUILD_SRC_DIR}/.  ${GOPATH}/${PACKAGE}
       - cp -a ${CODEBUILD_SRC_DIR}/.  ${GOPATH}/${PACKAGE}
       - cp -a ${CODEBUILD_SRC_DIR}/.  /go/src/${PACKAGE} 
-         
+      - cd /go/src
+      - go get github.com/ChimeraCoder/anaconda         
       - echo go path
       - ls ${GOPATH}/${PACKAGE}
       
