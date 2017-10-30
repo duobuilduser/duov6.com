@@ -43,6 +43,10 @@ phases:
       - go get gopkg.in/mgo.v2
       - go get gopkg.in/mgo.v2/bson
       
+      - go get google.golang.org/cloud
+      - go get google.golang.org/cloud/bigtable
+      - go get google.golang.org/cloud/datastore
+      
       - echo go path
       - ls ${GOPATH}/${PACKAGE}
       
