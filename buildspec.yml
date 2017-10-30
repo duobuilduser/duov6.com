@@ -43,9 +43,7 @@ phases:
       - go get gopkg.in/mgo.v2
       - go get gopkg.in/mgo.v2/bson
       
-      - go get google.golang.org/cloud
-      - go get google.golang.org/cloud/bigtable
-      - go get google.golang.org/cloud/datastore
+     
       
       - echo go path
       - ls ${GOPATH}/${PACKAGE}
@@ -55,6 +53,9 @@ phases:
   build:
     commands:
       - echo Build started on `date`
+      - go get google.golang.org/cloud
+      - go get google.golang.org/cloud/bigtable
+      - go get google.golang.org/cloud/datastore
       - go build ${CODEBUILD_SRC_DIR}/duoauth/duoauth.go
   post_build:
     commands:
