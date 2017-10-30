@@ -17,22 +17,17 @@ phases:
 
       - echo Create dir in GOPATH for sources
       - mkdir -p ${GOPATH}/${PACKAGE}
-      - mkdir -p /go/src/${PACKAGE_GIT}    
+       
 
       - echo Copy source files into GOPATH
       - echo cp -a ${CODEBUILD_SRC_DIR}/.  ${GOPATH}/${PACKAGE}
       - cp -a ${CODEBUILD_SRC_DIR}/.  ${GOPATH}/${PACKAGE}
       - cp -a ${CODEBUILD_SRC_DIR}/.  /go/src/${PACKAGE} 
       - git clone https://github.com/DuoSoftware/v6engine-deps.git 
-      - cp -a ${CODEBUILD_SRC_DIR}/v6engine-deps/. /go/src/{PACKAGE_GIT}
-      - cd /go/src/{PACKAGE_GIT} && ls && pwd
+      - cp -a ${CODEBUILD_SRC_DIR}/v6engine-deps/. /go/src/
+      - cd /go/src/ && ls && pwd
        
-     
-      
-      - echo go path
-      - ls ${GOPATH}/${PACKAGE}
-      
-      - cd ${GOPATH}/${PACKAGE} 
+         
             
   build:
     commands:
