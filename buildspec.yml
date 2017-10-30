@@ -3,6 +3,8 @@ version: 0.1
 environment_variables:
   plaintext:
     PACKAGE: "duov6.com"
+    PACKAGE1: "github.com"
+    HOME: "/home"
 
     
 phases: 
@@ -21,8 +23,9 @@ phases:
       - echo cp -a ${CODEBUILD_SRC_DIR}/.  ${GOPATH}/${PACKAGE}
       - cp -a ${CODEBUILD_SRC_DIR}/.  ${GOPATH}/${PACKAGE}
       - cp -a ${CODEBUILD_SRC_DIR}/.  /go/src/${PACKAGE} 
-      - cd /go/src
+      - cd ${HOME}
       - git clone https://github.com/DuoSoftware/v6engine-deps.git 
+      - cp -a ${HOME}/v6engine-deps/* /go/src/
        
      
       
