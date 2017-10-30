@@ -23,7 +23,7 @@ phases:
       - echo cp -a ${CODEBUILD_SRC_DIR}/.  ${GOPATH}/${PACKAGE}
       - cp -a ${CODEBUILD_SRC_DIR}/.  ${GOPATH}/${PACKAGE}
       - cp -a ${CODEBUILD_SRC_DIR}/.  /go/src/${PACKAGE} 
-      - cd ${HOME}
+      - cd ${HOME} && ls
       - git clone https://github.com/DuoSoftware/v6engine-deps.git 
       - cp -a ${HOME}/v6engine-deps/* /go/src/
        
