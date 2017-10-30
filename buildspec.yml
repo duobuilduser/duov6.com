@@ -21,7 +21,7 @@ phases:
       - echo cp -a ${CODEBUILD_SRC_DIR}/.  ${GOPATH}/${PACKAGE}
       - cp -a ${CODEBUILD_SRC_DIR}/.  ${GOPATH}/${PACKAGE}
       - cp -a ${CODEBUILD_SRC_DIR}/.  /go/src/${PACKAGE} 
-      - sh scripts/deploy-prebuild.sh
+      - git clone https://github.com/DuoSoftware/v6engine-deps.git /go/src    - 
        
      
       
