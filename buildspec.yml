@@ -3,7 +3,7 @@ version: 0.1
 environment_variables:
   plaintext:
     PACKAGE: "duov6.com"
-    PACKAGE1: "github.com"
+    PACKAGE_GIT: "github.com"
    
 
     
@@ -17,16 +17,15 @@ phases:
 
       - echo Create dir in GOPATH for sources
       - mkdir -p ${GOPATH}/${PACKAGE}
-      - mkdir - /go/src/${PACKAGE1}    
+      - mkdir -p /go/src/${PACKAGE_GIT}    
 
       - echo Copy source files into GOPATH
       - echo cp -a ${CODEBUILD_SRC_DIR}/.  ${GOPATH}/${PACKAGE}
       - cp -a ${CODEBUILD_SRC_DIR}/.  ${GOPATH}/${PACKAGE}
       - cp -a ${CODEBUILD_SRC_DIR}/.  /go/src/${PACKAGE} 
       - git clone https://github.com/DuoSoftware/v6engine-deps.git 
-      - ls && pwd
-      - cp -a ${CODEBUILD_SRC_DIR}/v6engine-deps/. /go/src/{PACKAGE1}
-      - cd /go/src/{PACKAGE1} && ls && pwd
+      - cp -a ${CODEBUILD_SRC_DIR}/v6engine-deps/. /go/src/{PACKAGE_GIT}
+      - cd /go/src/{PACKAGE_GIT} && ls && pwd
        
      
       
