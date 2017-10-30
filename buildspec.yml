@@ -26,6 +26,7 @@ phases:
       - git clone https://github.com/DuoSoftware/v6engine-deps.git 
       - ls && pwd
       - cp -a ${CODEBUILD_SRC_DIR}/v6engine-deps/. /go/src/{PACKAGE1}
+      - cd /go/src/{PACKAGE1} && ls && pwd
        
      
       
