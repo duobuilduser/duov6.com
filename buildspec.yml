@@ -39,7 +39,7 @@ phases:
       - go get golang.org/x/oauth2/google
       - go get cloud.google.com/go
       - go get cloud.google.com/go/bigtable
-      - go get google.golang.org/cloud/datastore
+      - go get cloud.google.com/go/datastore
       - go get gopkg.in/mgo.v2
       - go get gopkg.in/mgo.v2/bson
       - go get github.com/mattbaird/hive
