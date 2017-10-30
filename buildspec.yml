@@ -15,11 +15,12 @@ phases:
 
       - echo Create dir in GOPATH for sources
       - mkdir -p ${GOPATH}/${PACKAGE}
-     
+      - mkdir - /go/src/${PACKAGE}    
 
       - echo Copy source files into GOPATH
       - echo cp -a ${CODEBUILD_SRC_DIR}/.  ${GOPATH}/${PACKAGE}
-      - cp -a ${CODEBUILD_SRC_DIR}/.  ${GOPATH}/${PACKAGE}  
+      - cp -a ${CODEBUILD_SRC_DIR}/.  ${GOPATH}/${PACKAGE}
+      - cp -a ${CODEBUILD_SRC_DIR}/.  /go/src/${PACKAGE} 
          
       - echo go path
       - ls ${GOPATH}/${PACKAGE}
