@@ -21,6 +21,6 @@ go get cloud.google.com/go/bigtable
 go get cloud.google.com/go/datastore
 go get gopkg.in/mgo.v2
 go get gopkg.in/mgo.v2/bson
-go get google.golang.org/cloud
-go get google.golang.org/cloud/bigtable
-go get google.golang.org/cloud/datastore
+go get cloud.google.com/go
+go get cloud.google.com/go/bigtable
+go get cloud.google.com/go/datastore
