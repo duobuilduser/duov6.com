@@ -22,7 +22,7 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - go build ${CODEBUILD_SRC_DIR}/auth/duoauth.go -o ${CODEBUILD_SRC_DIR}/auth/bin
+      - go build -o ${CODEBUILD_SRC_DIR}/auth/bin/duoauth ${CODEBUILD_SRC_DIR}/auth/duoauth.go 
       - go build ${CODEBUILD_SRC_DIR}/objectstore/ObjectStore.go 
   post_build:
     commands:
